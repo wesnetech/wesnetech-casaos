@@ -45,15 +45,20 @@ services:
     network_mode: bridge
     privileged: false
 x-casaos:
-  author: self
-  category: self
+  author: Wesnetech
+  category: WesnetechCasaOS
   hostname: app.localstack.cloud
   icon: https://docs.localstack.cloud/images/logo.svg
-  index: /
+  thumbnail: "https://docs.localstack.cloud/images/logo.svg"
+  main: app
+  description:
+    en_us: Localstack is a fully functional local AWS cloud stack that enables you to develop and test your cloud and serverless apps offline.
+  tagline:
+    en_us: Localstack, for local AWS services
+  developer: wesscoby
   is_uncontrolled: false
-  port_map: ""
   scheme: http
   store_app_id: wesnetech-localstack
   title:
-    custom: Localstack
-    en_us: localstack
+    en_us: Localstack
+  port_map: "4566"
