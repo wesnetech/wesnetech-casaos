@@ -1,4 +1,4 @@
-<img src="https://cdn.jsdelivr.net/gh/wesnetech/big-bearwesnetech-casaos/images/logo.png" width="300" alt="Wesnetech CasaOS App Store">
+<img src="https://cdn.jsdelivr.net/gh/wesnetech/wesnetech-casaos/images/logo.png" width="300" alt="WesnetechCasaOS App Store">
 
 # Wesnetech CasaOS
 
