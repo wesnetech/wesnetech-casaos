@@ -1,0 +1,59 @@
+# Configuration for localstack
+
+# Name of the wesnetech-localstack application
+name: wesnetech-localstack
+
+# Service definitions for the wesnetech-localstack application
+services:
+  localstack:
+    cpu_shares: 90
+    command: []
+    container_name: localstack
+    deploy:
+      resources:
+        limits:
+          memory: 31504M
+    environment:
+      - DEBUG=0
+      - GATEWAY_LISTEN=0.0.0.0:4566
+      - LOCALSTACK_AUTH_TOKEN=
+      - LOCALSTACK_HOST=[CASA_OS_IP]:4566
+      - MAIN_CONTAINER_NAME=localstack
+      - PERSISTENCE=1
+      - SERVICES=s3,sqs,ses,ec2,lambda,cloudformation,cloudwatch,iam,apigateway,route53,secretsmanager,acm,transcribe,events,kms,sns,sts
+    hostname: localstack
+    image: localstack/localstack:latest
+    labels:
+      icon: https://docs.localstack.cloud/images/logo.svg
+    ports:
+      - target: 4566
+        published: "4566"
+        protocol: tcp
+      - target: 4510
+        published: 4510-4559
+        protocol: tcp
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        source: /DATA/AppData/localstack/config
+        target: /docker-entrypoint-initaws.d
+      - type: bind
+        source: /var/run/docker.sock
+        target: /var/run/docker.sock
+    devices: []
+    cap_add: []
+    network_mode: bridge
+    privileged: false
+x-casaos:
+  author: self
+  category: self
+  hostname: app.localstack.cloud
+  icon: https://docs.localstack.cloud/images/logo.svg
+  index: /
+  is_uncontrolled: false
+  port_map: ""
+  scheme: http
+  store_app_id: wesnetech-localstack
+  title:
+    custom: Localstack
+    en_us: localstack
